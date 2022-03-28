@@ -1,0 +1,35 @@
+body {
+    margin: 1em;
+    padding: 1em;
+}
+
+.mm1 
+{
+    background-color: black;
+    color: white;
+}
+
+.mm1 .mm2
+{
+    display: inline-block;
+}
+
+.ar 
+{
+    text-align: right
+}
+
+.bgb
+{
+    background-color: black;
+}
+
+.bcc
+{
+    border-collapse: collapse;
+}
+
+.p2
+{
+    padding: 2em;
+}

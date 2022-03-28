@@ -1,103 +1,22 @@
 <html>
     <head>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="s.css">
+<script src="s.js"></script>
+<script src="tex-mml-chtml.js"></script>
+
+
 
     </head>
     <body>
-        <input onkeyup=doit() type="text" id="mm" value="3333">mm
 
+        <input onkeyup=doit() type="text" id="mm" value="3333">mm
         <pre id="out"></pre>
+        <div id="res"></div>
+        <div id="res-banana"></div>
+        <div id="res-metric"></div>
     </body>
 <script>
-
-let dqs = function(w)
-{
-    return(document.querySelector(w))
-}
-
-const bananas = [
-    ['tenth', 25.4/10000],
-    ['thou', 25.4/1000],
-    ['inch', 25.4],
-    ['foot', 304.8],
-    ['yard', 914.4],
-    ['mile', 1.61*1000*1000],
-]
-
-
-let doit = function()
-{
-    mm = dqs("#mm").value
-    let unit = bananas[0][0]
-    let factor = bananas[0][1]
-    let best = mm/factor
-    for(const i of bananas)
-    {
-        const n = mm/i[1]
-        if (n < best && n > 1)
-        {
-            best = n
-            unit = i[0]
-            factor = i[1]
-        }
-        
-    }
-    if(factor == -1)
-    {
-    }
-    const val = mm/factor;
-    console.log(`unit ${unit}, factor ${factor}, val ${val}`)
-
-    const full = Math.floor(val)
-    const frac = val - full
-    console.log(`frac is ${frac}`)
-
-    let lookup = []
-
-
-    co2 = 200000;
-    bestU = 1
-    bestD = 2;
-    bestV = bestU/bestD;
-    while(true)
-    {
-        const _nD = Math.floor(Math.random() * 20)
-        const nD = 2**_nD;
-        const nU = Math.floor(Math.random() * nD)
-        const v2 = nU/nD;
-        const diff = Math.abs(v2 - frac)
-        if(diff < bestV)
-        {
-            //console.log(`${nU}/${nD} = ${v2} vs. ${frac}`)
-            //console.log(`frac is ${frac}`);
-            //console.log(`rv   is ${v2}`);
-            //console.log(`diff is ${diff}`);
-            bestU = nU;
-            bestD = nD;
-            bestV = diff
-            if(diff < 1e-8)
-            {
-                break;
-            }
-        }
-        if (!--co2)
-        {
-            break;
-        }
-    }
-
-    dqs("#out").innerText = `
-    ${mm} mm are ${val} ${unit}
-    = ${full} ${bestU}/${bestD}  ${unit}
-
-    e1: ${frac}
-    e2: ${bestV}
-    `
-    
-
-
-}
 doit();
-
-
 </script>
 </html>
