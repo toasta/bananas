@@ -19,6 +19,8 @@ const bananas = [
     ['foot', 304.8],
     ['yard', 914.4],
     ['mile', 1.61*1000*1000],
+    ['letter A', 2.54*0.234],
+    ['letter B', 2.54*0.238],
 ]
 
 function mc(frac)
